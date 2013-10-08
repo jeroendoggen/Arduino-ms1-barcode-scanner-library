@@ -1,4 +1,4 @@
-# Arduino-ms1-barcode-scanner-library
+# MS1 Barcode scanner library
 
  - Documentation: http://files.microscan.com/helpfiles/ms1_help_file/index.html
 
@@ -32,15 +32,27 @@
     - is the datarate ok to avoid buffer overflow at the Arduino side (probably it is)
  - Preamble/postamble character(s) can be configured --> also make it configurable in our own library
 
-## Pseudo code:
+## Pseudo code (v1):
 
-Class BarcodeScanner():
-  SetReadingMode( ) -> continuous, level trigger, serial-data trigger
-  SendSerialTrigger()
-  ConfigureScanner() -> send various configuration commands
-  SelectBarcodeEncoding() -> enable disable the ones you want
-  enableReader
-  disableReader
+    Class BarcodeScanner():
+      SetReadingMode() -> continuous, level trigger, serial-data trigger
+      SendSerialTrigger()
+      ConfigureScanner() -> send various configuration commands
+      SelectBarcodeEncoding() -> enable disable the ones you want
+      enableReader()
+      disableReader()
+  
+## Pseudo code (v2):
+
+    class symbologies;
+    class uart_protocol ;
+    class command_interface;
+    
+    class BarcodeScanner():
+      symbologies symb;
+      uart_protocol  protocol;
+      command_interface command;
+
 
 
 
